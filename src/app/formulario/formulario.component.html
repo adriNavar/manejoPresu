@@ -1,0 +1,32 @@
+<form (ngSubmit)="f.form.valid && agregarValor()" #f="ngForm">
+<!--  ngSubmit para monitorear la validacion del boton, que no se agregue vacio,
+ #f es una referencia local, y con form.valid que es de angular se revisa que el formulario sea valido-->
+  <div class="agregar">
+    <div class="agregar_contenedor">
+      <select (change)="tipoOperacion($event)" class="agregar_tipo" [ngClass]="{redfocus:tipo ==='egresoOperacion'}">
+        <option value="ingresoOperacion" selected>+</option>
+        <option value="egresoOperacion">-</option>
+      </select>
+      <!-- ngClass se agrega para el estilo al input (rojo para egreso verde para ingreso) -->
+      <input [ngClass]="{redfocus:tipo ==='egresoOperacion'}"
+        type="text"
+        class="agregar_descripcion"
+        placeholder="Agregar Descripción"
+        name="descripcionInput"
+        [(ngModel)]="descripcionInput" required
+      />
+      <!-- Requerid, para que no deje agregar campo vacio-->
+      <input [ngClass]="{redfocus:tipo ==='egresoOperacion'}"
+        type="number"
+        class="agregar_valor"
+        placeholder="Valor"
+        name="valorInput"
+        [(ngModel)]="valorInput" required
+      />
+
+      <button type="submit" class="agregar_btn" [ngClass]="{redfocus:tipo ==='egresoOperacion'}">
+        <i [ngClass]="{red:tipo ==='egresoOperacion'}" class="ion-ios-checkmark-outline"></i>
+      </button>
+    </div>
+  </div>
+</form>

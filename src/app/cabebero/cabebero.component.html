@@ -1,0 +1,28 @@
+<div class="cabecero">
+  <div class="presupuesto">
+      <div class="presupuesto_titulo">
+          Presupuesto Disponible:
+      </div>
+
+      <div class="presupuesto_valor">{{presupuestoTotal | currency:'Pesos':'$':'1.2-2'}}</div>
+      <!-- Currency es para manejar concepto de Pipes para el formato de moneda, se indica el tipo el simbolo y los decimales-->
+
+      <div class="presupuesto_ingreso limpiarEstilos">
+          <div class="presupuesto_ingreso--texto">Ingresos</div>
+          <div class="right">
+              <div class="presupuesto_ingreso--valor">{{ingresoTotal | currency:'Pesos':'$':'1.2-2'}}</div>
+              <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+          </div>
+      </div>
+
+      <div class="presupuesto_egreso limpiarEstilos">
+          <div class="presupuesto_egreso--text">Egresos</div>
+          <div class="right limpiarEstilos">
+              <div class="presupuesto_egreso--valor">-{{egresoTotal | currency:'Pesos':'$':'1.2-2'}}</div>
+              <div class="presupuesto_egreso--porcentaje">{{porcentajeTotal |  percent}} </div>
+              <!-- Percent maneja el concepto pipes para el formato de porcentaje -->
+          </div>
+
+      </div>
+  </div>
+</div>
